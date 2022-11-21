@@ -40,6 +40,7 @@ public final class SimpleGUI {
         final int height = (int) screen.getHeight();
         frame.setSize(width / PROPORTION, height / PROPORTION);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setTitle("My first Java graphical interface");
         frame.setVisible(true);
     }
 
