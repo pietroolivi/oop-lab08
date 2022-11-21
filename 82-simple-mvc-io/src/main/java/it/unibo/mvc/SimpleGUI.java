@@ -18,9 +18,12 @@ import java.awt.Toolkit;
 public final class SimpleGUI {
 
     private final JFrame frame = new JFrame();
-    final Controller controller = new Controller();
+    private final Controller controller = new Controller();
     private static final int PROPORTION = 5;
 
+    /**
+     * Creates the GUI.
+     */
     public SimpleGUI() {
         final JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
@@ -31,7 +34,7 @@ public final class SimpleGUI {
         frame.add(panel);
         save.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent arg0) {
+            public void actionPerformed(final ActionEvent arg0) {
                 controller.writeStringOnFile(area.getText());
             }
         });
@@ -44,7 +47,19 @@ public final class SimpleGUI {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
-        SimpleGUI gui = new SimpleGUI();
+    /**
+     * Make the GUI visible.
+     */
+    private void display() {
+        frame.setVisible(true);
+    }
+
+    /**
+     * Launches the application.
+     * @param args unused
+     */
+    public static void main(final String[] args) {
+        final SimpleGUI gui = new SimpleGUI(); 
+        gui.display();
     }
 }

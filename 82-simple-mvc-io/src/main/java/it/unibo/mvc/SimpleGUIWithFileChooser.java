@@ -20,9 +20,12 @@ import java.awt.event.ActionListener;
 public final class SimpleGUIWithFileChooser {
 
     private final JFrame frame = new JFrame();
-    final Controller controller = new Controller();
+    private final Controller controller = new Controller();
     private static final int PROPORTION = 5;
 
+    /**
+     * Creates the GUI.
+     */
     public SimpleGUIWithFileChooser() {
         final JTextArea area = new JTextArea("Write text here");
         frame.add(area, BorderLayout.CENTER);
@@ -30,22 +33,22 @@ public final class SimpleGUIWithFileChooser {
         frame.add(save, BorderLayout.SOUTH);
         save.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent arg0) {
+            public void actionPerformed(final ActionEvent arg0) {
                 controller.writeStringOnFile(area.getText());
             }
         });
 
-        JPanel panel = new JPanel();
+        final JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
-        JTextField field = new JTextField();
+        final JTextField field = new JTextField();
         field.setEditable(false);
         field.setText(controller.getCurrentFilePath());
         panel.add(field, BorderLayout.CENTER);
-        JButton browse = new JButton("Browse...");
+        final JButton browse = new JButton("Browse...");
         browse.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent arg0) {
-                JFileChooser fChooser = new JFileChooser();
+            public void actionPerformed(final ActionEvent arg0) {
+                final JFileChooser fChooser = new JFileChooser();
                 final int returnValue = fChooser.showOpenDialog(panel);
                 if (returnValue == JFileChooser.APPROVE_OPTION) {
                     controller.setCurrentFile(fChooser.getSelectedFile());
@@ -67,7 +70,19 @@ public final class SimpleGUIWithFileChooser {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
-        SimpleGUIWithFileChooser gui = new SimpleGUIWithFileChooser();
+    /**
+     * Make the GUI visible.
+     */
+    private void display() {
+        frame.setVisible(true);
+    }
+
+    /**
+     * Launches the application.
+     * @param args unused
+     */
+    public static void main(final String[] args) {
+        final SimpleGUIWithFileChooser gui = new SimpleGUIWithFileChooser(); 
+        gui.display();
     }
 }
