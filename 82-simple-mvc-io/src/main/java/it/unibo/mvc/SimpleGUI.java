@@ -18,6 +18,7 @@ import java.awt.Toolkit;
 public final class SimpleGUI {
 
     private final JFrame frame = new JFrame();
+    final Controller controller = new Controller();
     private static final int PROPORTION = 5;
 
     public SimpleGUI() {
@@ -31,7 +32,6 @@ public final class SimpleGUI {
         save.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                final Controller controller = new Controller();
                 controller.writeStringOnFile(area.getText());
             }
         });
