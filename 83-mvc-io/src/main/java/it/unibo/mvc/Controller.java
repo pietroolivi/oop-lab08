@@ -9,7 +9,7 @@ public interface Controller {
 
     /**
     * Sets the next string to print.
-    * @param the string to be setted
+    * @param s string to be setted
     */
     void setNextStringToPrint(String s);
 
@@ -25,7 +25,6 @@ public interface Controller {
 
     /**
     * Print the current string.
-    * @throws IllegalStateException if the current string is unset 
     */
-    void printCurrentString() throws IllegalStateException;
+    void printCurrentString();
 }
